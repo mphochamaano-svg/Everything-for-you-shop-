@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Everything For You Shop — Durban Clothes</title>
+  <meta name="description" content="Everything For You Shop — Trendy Durban clothing for men, women and kids. Shop new arrivals, bundles and local styles.">
+  <link rel="icon" href="data:,"><style>
+  /* ----- Reset & base ----- */
+  :root{--bg:#0b0b0b;--card:#0f0f10;--muted:#bdb7b0;--accent:#d4af37;--white:#ffffff}
+  *{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:linear-gradient(180deg,#050505 0%, #0b0b0b 100%);color:var(--white);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1100px;margin:0 auto;padding:24px}
+
+  /* ----- Header ----- */
+  header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
+  .brand{display:flex;align-items:center;gap:12px}
+  .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ffd88d);display:flex;align-items:center;justify-content:center;font-weight:700;color:#111}
+  .brand h1{margin:0;font-size:18px;letter-spacing:0.6px}
+  nav{display:flex;gap:18px;align-items:center}
+  nav a{padding:8px 12px;border-radius:8px;font-weight:600;color:var(--muted)}
+  nav a.cta{background:var(--accent);color:#111}
+
+  /* ----- Hero ----- */
+  .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin:20px 0}
+  .hero-card{padding:28px;background:rgba(255,255,255,0.02);border-radius:18px}
+  .eyebrow{font-size:13px;color:var(--accent);font-weight:700}
+  .hero h2{margin:12px 0;font-size:34px}
+  .hero p{color:var(--muted);line-height:1.5}
+  .hero .buttons{margin-top:18px;display:flex;gap:12px}
+  .btn{display:inline-block;padding:12px 16px;border-radius:10px;font-weight:700;cursor:pointer}
+  .btn.primary{background:var(--accent);color:#111}
+  .btn.ghost{border:1px solid rgba(255,255,255,0.08);color:var(--white);background:transparent}
+  .hero-visual{border-radius:18px;overflow:hidden}
+  .hero-visual img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* ----- Filters / categories ----- */
+  .categories{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+  .chip{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.03);font-weight:600;color:var(--muted);cursor:pointer}
+  .chip.active{background:var(--accent);color:#111}
+
+  /* ----- Product grid ----- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+  .card{background:var(--card);border-radius:14px;overflow:hidden;padding-bottom:12px}
+  .card img{width:100%;height:260px;object-fit:cover;display:block}
+  .card .info{padding:12px}
+  .price{font-weight:800;color:var(--accent);margin-top:6px}
+  .add{margin-top:10px;display:flex;gap:8px}
+  .small{font-size:13px;color:var(--muted)}
+
+  /* ----- Footer ----- */
+  footer{margin-top:34px;padding:24px;border-top:1px solid rgba(255,255,255,0.03);color:var(--muted)}
+  .footer-grid{display:flex;gap:24px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+
+  /* ----- Modal (product quick view) ----- */
+  .modal{position:fixed;inset:0;display:none;place-items:center;background:linear-gradient(0deg,rgba(2,2,2,0.7),rgba(2,2,2,0.7));z-index:60}
+  .modal.open{display:grid}
+  .modal-card{width:min(900px,96%);background:linear-gradient(180deg,#0d0d0d, #0b0b0b);border-radius:12px;padding:16px;display:grid;grid-template-columns:1fr 360px;gap:14px}
+  .modal-card img{width:100%;height:420px;object-fit:cover;border-radius:10px}
+  .modal h3{margin:0}
+  .close{background:transparent;border:0;color:var(--muted);font-weight:700;cursor:pointer}
+
+  /* ----- Floating WhatsApp ----- */
+  .whatsapp{position:fixed;right:18px;bottom:18px;background:linear-gradient(135deg,#25D366,#128C7E);width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,0.5);z-index:80}
+  .whatsapp a{color:#fff;font-weight:700}
+
+  /* ----- Responsive ----- */
+  @media (max-width:900px){.hero{grid-template-columns:1fr;}.hero-visual{order:-1}.modal-card{grid-template-columns:1fr}.hero h2{font-size:26px}.hero p{font-size:15px}}
+  @media (max-width:520px){.grid{grid-template-columns:repeat(2,1fr)}.card img{height:180px}.hero{gap:14px}.brand h1{font-size:16px}}
+  </style>
+</head>
+<body>
+  <header class="container">
+    <div class="brand">
+      <div class="logo">EFY</div>
+      <div>
+        <h1>Everything For You Shop</h1>
+        <div class="small">Durban clothes • Local styles • Affordable</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#cart" class="cta" id="view-cart">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="eyebrow">New in — Durban Collection</div>
+        <h2>Everything For You Shop — Durban clothes you'll love</h2>
+        <p>Authentic Durban styles, everyday wear and special traditional pieces. Free local pickup in Durban and fast local delivery across KZN.</p>
+        <div class="buttons">
+          <button class="btn primary" onclick="scrollToShop()">Shop New Arrivals</button>
+          <a class="btn ghost" href="#about">Our Story</a>
+        </div>
+        <div style="margin-top:14px;" class="small">Open to resell on WhatsApp — message us for bulk orders and reseller prices.</div>
+      </div>
+      <div class="hero-visual">
+        <img src="https://images.unsplash.com/photo-1520975912778-4f2fc7396b4a?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=3d5e0c10a6a4e1d1ccb7f4c9f7b6f2a8" alt="Durban fashion">
+      </div>
+    </section>
+
+    <section>
+      <div class="categories" id="categories">
+        <div class="chip active" data-cat="all">All</div>
+        <div class="chip" data-cat="women">Women</div>
+        <div class="chip" data-cat="men">Men</div>
+        <div class="chip" data-cat="kids">Kids</div>
+        <div class="chip" data-cat="traditional">Traditional</div>
+        <div class="chip" data-cat="sale">Sale</div>
+      </div>
+
+      <div id="shop" class="grid" aria-live="polite"></div>
+    </section>
+
+    <section id="about" style="margin-top:28px;background:transparent;padding:18px;border-radius:12px;">
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+        <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=3b7a7b7f1a0e2f2a5bb3f3b3" alt="founder" style="width:120px;height:120px;object-fit:cover;border-radius:12px">
+        <div>
+          <h3>Our Story</h3>
+          <p class="small">Everything For You Shop started in Durban with the goal of making local fashion accessible. We source clothing that celebrates Durban culture — casual streetwear, family-friendly outfits and traditional pieces for events. We support local suppliers and offer reseller-friendly pricing for bulk buyers.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:28px;padding:18px;background:rgba(255,255,255,0.02);border-radius:12px">
+      <h3>Contact</h3>
+      <p class="small">Want to place a bulk/reseller order or ask about sizing? Message us on WhatsApp or send an email.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+        <a class="btn primary" href="https://wa.me/YOUR_NUMBER" target="_blank">Message on WhatsApp</a>
+        <a class="btn ghost" href="mailto:mphochamaano@gmail.com">Email us</a>
+      </div>
+      <div style="margin-top:12px;color:var(--muted)" class="small">Business hours: Mon — Sat, 9:00 — 17:00 (Durban)</div>
+    </section>
+
+    <footer>
+      <div class="footer-grid container">
+        <div>© <strong>Everything For You Shop</strong> — Durban • Local styles</div>
+        <div class="small">Designed for resellers & shoppers. Need changes? Reply and I will customise.</div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Product modal -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div>
+        <img id="modal-img" src="" alt="">
+      </div>
+      <div style="padding:6px 8px;">
+        <button class="close" onclick="closeModal()">Close ✕</button>
+        <h3 id="modal-title">Product title</h3>
+        <div id="modal-desc" class="small" style="margin-top:8px"></div>
+        <div id="modal-price" style="margin-top:12px;font-weight:800;color:var(--accent)"></div>
+        <div style="margin-top:12px">
+          <label class="small">Size</label>
+          <div style="display:flex;gap:8px;margin-top:8px"><select id="size-select" style="padding:8px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--white)"><option>S</option><option>M</option><option>L</option><option>XL</option></select></div>
+        </div>
+        <div style="margin-top:14px;display:flex;gap:10px" class="add">
+          <button class="btn primary" id="modal-add">Add to cart</button>
+          <button class="btn ghost" onclick="window.location='#contact'">Ask about this</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp -->
+  <div class="whatsapp" title="Message us on WhatsApp">
+    <a href="https://wa.me/YOUR_NUMBER" target="_blank">WA</a>
+  </div>
+
+  <script>
+  // Sample product data (replace with your real products or dynamic feed)
+  const PRODUCTS = [
+    {id:1,title:'Durban Breeze Dress',category:'women',price:299,desc:'Lightweight, colorful print — perfect for Durban days',img:'https://images.unsplash.com/photo-1520975912778-4f2fc7396b4a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=3d5e0c10a6a4e1d1ccb7f4c9f7b6f2a8'},
+    {id:2,title:'Mkhize Traditional Shirt',category:'traditional',price:399,desc:'Traditional print shirt for events and celebrations',img:'https://images.unsplash.com/photo-1533577116850-9cc66cad8a9b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=9c490b2b8f6d4b3a1f4d9e1b'},
+    {id:3,title:'Durban Street Hoodie',category:'men',price:359,desc:'Cozy hoodie with local Durban logo',img:'https://images.unsplash.com/photo-1520975695511-1d5f5d6f8b1e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=8a1d1f1a4b2b3c4d5e6f7a8b'},
+    {id:4,title:'Kids Carnival Set',category:'kids',price:259,desc:'Bright, comfortable set for kids — machine washable',img:'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=2a1b2c3d4e5f6a7b8c9d0e1f'},
+    {id:5,title:'Siyaya Wrap Skirt',category:'women',price:189,desc:'Elegant wrap skirt inspired by Durban coastal colors',img:'https://images.unsplash.com/photo-1520975695511-1d5f5d6f8b1e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=7b8c9d0e1f2a3b4c5d6e'},
+    {id:6,title:'Reseller Bundle (3 pcs)',category:'sale',price:699,desc:'Special reseller bundle — mix any 3 items (save 20%)',img:'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=abcdef1234567890'}
+  ];
+
+  // Render shop
+  const shop = document.getElementById('shop');
+  function renderProducts(filter='all'){
+    shop.innerHTML='';
+    const list = PRODUCTS.filter(p=> filter==='all' ? true : p.category===filter);
+    for(const p of list){
+      const card = document.createElement('article');card.className='card';
+      card.innerHTML = `
+        <img src="${p.img}" alt="${p.title}">
+        <div class="info">
+          <div style="display:flex;justify-content:space-between;align-items:center"><strong>${p.title}</strong><div class="price">R ${p.price}</div></div>
+          <div class="small">${p.desc}</div>
+          <div class="add">
+            <button class="btn primary" onclick="openModal(${p.id})">Quick view</button>
+            <button class="btn ghost" onclick="addToCart(${p.id})">Add</button>
+          </div>
+        </div>`;
+      shop.appendChild(card);
+    }
+  }
+
+  // Category chips
+  document.getElementById('categories').addEventListener('click', e=>{
+    const chip = e.target.closest('.chip'); if(!chip) return;
+    document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+    chip.classList.add('active');
+    renderProducts(chip.dataset.cat);
+  });
+
+  // Modal
+  const modal = document.getElementById('modal');
+  function openModal(id){
+    const p = PRODUCTS.find(x=>x.id===id); if(!p) return;
+    document.getElementById('modal-img').src=p.img;
+    document.getElementById('modal-title').textContent=p.title;
+    document.getElementById('modal-desc').textContent=p.desc;
+    document.getElementById('modal-price').textContent='R '+p.price;
+    modal.classList.add('open');
+    window.currentProduct = p;
+  }
+  function closeModal(){ modal.classList.remove('open'); window.currentProduct=null }
+  modal.addEventListener('click', e=>{ if(e.target===modal) closeModal(); });
+
+  // Cart (localStorage)
+  const CART_KEY = 'efy_cart_v1';
+  function getCart(){ try{ return JSON.parse(localStorage.getItem(CART_KEY))||[] }catch(e){return []} }
+  function saveCart(c){ localStorage.setItem(CART_KEY,JSON.stringify(c)); updateCartCount(); }
+  function addToCart(id){ const cart=getCart(); const p=PRODUCTS.find(x=>x.id===id); if(!p) return; const found=cart.find(i=>i.id===id); if(found){found.qty++;}else{cart.push({id:p.id,title:p.title,price:p.price,qty:1})} saveCart(cart); alert(p.title+' added to cart'); }
+  function updateCartCount(){ const cart=getCart(); const total = cart.reduce((s,i)=>s+i.qty,0); document.getElementById('cart-count').textContent=total }
+  document.getElementById('modal-add').addEventListener('click', ()=>{ if(window.currentProduct) addToCart(window.currentProduct.id); closeModal(); });
+
+  // View cart (simple list popup)
+  document.getElementById('view-cart').addEventListener('click', (e)=>{ e.preventDefault(); showCart(); });
+  function showCart(){ const cart=getCart(); if(cart.length===0){ alert('Your cart is empty — add items from the shop.'); return; }
+    let msg='Your cart:\n\n'; let total=0; for(const it of cart){ msg+=`${it.title} — R ${it.price} x ${it.qty} = R ${it.price*it.qty}\n`; total+=it.price*it.qty } msg+=`\nTotal: R ${total}\n\nTo place an order, message us on WhatsApp or email (links at the bottom).`; alert(msg);
+  }
+
+  function scrollToShop(){ document.getElementById('shop').scrollIntoView({behavior:'smooth'}); }
+
+  // Init
+  renderProducts('all'); updateCartCount();
+  </script>
+</body>
+</html>
